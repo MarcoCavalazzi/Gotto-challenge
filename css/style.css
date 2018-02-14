@@ -1,0 +1,15 @@
+/* custom styles */
+div.modal-body input#username{
+	border-bottom: 0 !important; 
+	text-align: center;
+}
+div.flex-center input.hidden{
+	display: none;
+	border-bottom: 0 !important;
+	text-align: center;
+}
+
+div.flex-center input{
+	width: 200px;
+	padding: 0;
+}
