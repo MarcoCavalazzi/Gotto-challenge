@@ -64,10 +64,12 @@
     <script type="text/javascript" src="js/mdb.min.js"></script>
 	
 	<script>
-		$(checkSession());
-		$("div.flex-center button.btn").on('click', checkSession);
+		$(checkSession());	// When the document is ready... we check the status of the session.
+		
+		$("div.flex-center button.btn").on('click', checkSession);	// associating the checkSession function to the click of the button
+		
+		// Function that controls the session and adapts the elements in the webpage accordingly.
 		function checkSession() {
-			console.log( "ready!" );
 			if(sessionStorage.SessionName != undefined){
 				$("div.flex-center input").hide();
 				$("div.flex-center button").hide();
@@ -76,8 +78,9 @@
 			}
 		}
 		
-		$(".form-control#name").on('input', checkName);
+		$(".form-control#name").on('input', checkName);	// every time the user adds or removes and element from the input field we run the function checkName.
 		
+		// Function that control the text in input. It sets the session variable and enables or disables the Send button according to the content.
 		function checkName(){
 			sessionStorage.SessionName = $(".form-control#name")[0].value;
 			if(sessionStorage.SessionName.length > 0){
@@ -85,7 +88,6 @@
 			}else{
 				$("button.btn-primary[data-target='#exampleModal']").prop('disabled', true);
 			}
-			console.log(sessionStorage.SessionName);
 			$("div.modal-body #username").val("Thank you \""+ sessionStorage.SessionName +"\"");
 			$("div.flex-center #username").val("Thank you \""+ sessionStorage.SessionName +"\"");
 		}
